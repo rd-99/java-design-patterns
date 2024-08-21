@@ -12,6 +12,14 @@ class Employee{
         this.address = EmployeeToBeCloned.address;
         this.name = EmployeeToBeCloned.name;
     }
+
+    @Override
+    public String toString(){
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", address=" + address +
+                '}';
+    }
 }
 
 class Address{
@@ -39,5 +47,13 @@ class Address{
 }
 
 public class CopyContructorDemo{
+    public static void main(String[] args) {
+
+        Employee employee = new Employee("Rutu" , new Address("XYZ street" , "EFG City" , "ABc" ));
+        Employee clonedEmployee = new Employee(employee);
+        clonedEmployee.name = "newNameWhichResultsInNonChangeInOriginalValue";
+        System.out.println(employee);
+        System.out.println(clonedEmployee);
+    }
 
 }
